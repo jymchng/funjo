@@ -55,6 +55,13 @@ fn test_array_set() raises:
     except:
         expect_no_exception("test_array_set")
 
+fn test_fill() raises:
+    let array: Array[Int, 3] = Array[Int, 3]()
+    array.fill(5)
+    let t1 = testing.assert_true(array[0] == 5, "test_array_can_be_init2::t1 failed")
+    let t2 = testing.assert_true(array[1] == 5, "test_array_can_be_init2::t2 failed")
+    let t3 = testing.assert_true(array[2] == 5, "test_array_can_be_init2::t3 failed")
+
 # fn test_array_get_comptime() raises:
 #     alias array: Array[Int, 3] = [1, 2, 3]
 #     try:

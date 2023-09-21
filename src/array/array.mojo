@@ -52,6 +52,13 @@ struct Array[T: AnyType, N: Int]:
       self.storage.store(idx, value)
 
    # @always_inline
+   # fn fill(inout self, val: T) -> Self:
+   #    self.storage = stack_allocation[N, T]()
+   #    for i in range(N):
+   #       self.storage.store(i, val)
+   #    return self
+
+   # @always_inline
    # fn get[I: Int](self) raises -> T:
    #    constrained[I <= N, Array[T, N].out_of_bounds_error_msg]()
    #    return self.storage.__getitem__(I)
