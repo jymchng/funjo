@@ -1,1 +1,1 @@
-import array
+from array.array import Array

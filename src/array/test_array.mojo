@@ -2,10 +2,10 @@ import testing
 from array import Array
 
 fn expect_exception(fn_name: StringLiteral):
-    testing.assert_true(False, "Exception did NOT occur in " + fn_name)
+    testing.assert_true(False, "Exception did NOT occur in " + fn_name + " when it is expected to occur")
 
 fn expect_no_exception(fn_name: StringLiteral):
-    testing.assert_true(False, "Exception did occur in " + fn_name)
+    testing.assert_true(False, "Exception did occur in " + fn_name + " when it is not expected to occur")
 
 fn test_array_can_be_init() raises:
     let array: Array[Int, 3] = [1, 2, 3]
@@ -55,6 +55,13 @@ fn test_array_set() raises:
     except:
         expect_no_exception("test_array_set")
 
+# fn test_array_get_comptime() raises:
+#     alias array: Array[Int, 3] = [1, 2, 3]
+#     try:
+#         alias v: Int = array.get[0]()
+#     except:
+#         expect_no_exception("test_array_get_comptime")
+
 fn main() raises:
     print("Tests Results (if any): ")
     test_array_can_be_init()
@@ -64,4 +71,5 @@ fn main() raises:
     test_array_out_of_bounds_set()
     test_array_get()
     test_array_set()
+    # test_array_get_comptime()
     print("Tests Completed!")
